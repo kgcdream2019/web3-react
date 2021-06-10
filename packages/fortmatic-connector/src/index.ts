@@ -8,7 +8,7 @@ const chainIdToNetwork: { [network: number]: string } = {
   4: 'rinkeby',
   42: 'kovan',
   56: 'bscmainnet',
-  96: 'bsctestnet',
+  97: 'bsctestnet',
   
 }
 
@@ -34,9 +34,14 @@ export class FortmaticConnector extends AbstractConnector {
   public async activate(): Promise<ConnectorUpdate> {
     if (!this.fortmatic) {
       const Fortmatic = await import('fortmatic').then(m => m?.default ?? m)
+      const BSCOptions = {
+        /* Smart Chain mainnet RPC URL */
+        rpcUrl: this.chainId === 56 ? 'https://bsc-dataseed.binance.org/' :  'https://data-seed-prebsc-1-s1.binance.org:8545/', 
+        chainId: 56 // Smart Chain mainnet chain id
+      }
       this.fortmatic = new Fortmatic(
         this.apiKey,
-        this.chainId === 1 || this.chainId === 4 ? undefined : chainIdToNetwork[this.chainId]
+        (this.chainId === 1 || this.chainId === 4) ? undefined : ((this.chainId === 56 || this.chainId === 97) ? BSCOptions : chainIdToNetwork[this.chainId])
       )
     }
 
