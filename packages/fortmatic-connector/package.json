@@ -1,5 +1,5 @@
 {
-  "name": "@web3-react/fortmatic-connector",
+  "name": "@julswap/fortmatic-connector",
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,10 @@
     "dapp",
     "fortmatic"
   ],
-  "author": "Noah Zinsmeister <noahwz@gmail.com>",
+  "author": "kgcdream2019 <kgc.dream2019@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/NoahZinsmeister/web3-react.git"
+    "url": "git://github.com/kgcdream2019/web3-react.git"
   },
   "main": "dist/index.js",
   "module": "dist/fortmatic-connector.esm.js",

@@ -6,7 +6,10 @@ const chainIdToNetwork: { [network: number]: string } = {
   1: 'mainnet',
   3: 'ropsten',
   4: 'rinkeby',
-  42: 'kovan'
+  42: 'kovan',
+  56: 'bscmainnet',
+  96: 'bsctestnet',
+  
 }
 
 interface FortmaticConnectorArguments {
